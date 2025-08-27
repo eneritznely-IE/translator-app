@@ -1,0 +1,46 @@
+# ===========================
+# React (frontend)
+# ===========================
+
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Lock files
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+
+# Editor / OS files
+.DS_Store
+.vscode/
+.idea/
+
+# ===========================
+# Elixir / Erlang (backend)
+# ===========================
+
+# Build artifacts
+_build/
+deps/
+*.ez
+*.beam
+
+# Environment file
+.env
+
+# Editor / OS files
+.DS_Store
+.vscode/
+.idea/
+
+# ===========================
+# Misc
+# ===========================
+
+# Logs
+*.log
