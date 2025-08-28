@@ -5,7 +5,7 @@ port =
   System.get_env("PORT") |> case do
     nil -> 4000
     str -> String.to_integer(str)
-  end;
+  end
 
 config :translator, port: port
 

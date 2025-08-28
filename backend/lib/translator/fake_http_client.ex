@@ -14,6 +14,6 @@ defmodule Translator.FakeHttpClient do
      %Response{
        status_code: 200,
        body: ~s({"translations":[{"text":"Hola mundo"}]})
-     }};
+     }}
   end
 end

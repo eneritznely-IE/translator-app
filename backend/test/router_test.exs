@@ -10,12 +10,12 @@ defmodule Translator.RouterTest do
 
   setup do
     # Use fake HTTP client for tests to avoid real API calls
-    Application.put_env(:translator, :http_client, Translator.FakeHttpClient);
+    Application.put_env(:translator, :http_client, Translator.FakeHttpClient)
     # Set a temporary API key so TranslateService does not fail
     System.put_env("DEEPL_API_KEY", "fake-key")
     # Clean up the environment variable after each test
     on_exit(fn -> System.delete_env("DEEPL_API_KEY") end)
-    :ok;
+    :ok
   end
 
   test "POST /api/translate returns translated text" do
