@@ -8,7 +8,7 @@ import languages from "../assets/languages.json";
 // Allows users to input text, select a target language, and see the translated result.
 // Handles loading state and error messages.
 export default function Translator(){
-  const [input, setInput] = useState('Hola mundo');  // input text from user
+  const [input, setInput] = useState('');  // input text from user
   const [target, setTarget] = useState('EN');       // selected target language
   const [loading, setLoading] = useState(false);   // loading indicator
   const [result, setResult] = useState('');       // translated result
