@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend           # Build the backend image from the backend folder
+    container_name: backend
+    ports:
+      - "4000:4000"            # Expose backend port to host
+    env_file: ./backend/.env   # Load environment variables from .env
+    command: mix run --no-halt # Start the Elixir application
+    volumes:
+      - ./backend:/app         # Mount local code for live reload
+
+  frontend:
+    build: ./frontend          # Build the frontend image from the frontend folder
+    container_name: frontend
+    ports:
+      - "5173:5173"            # Expose Vite dev server port to host
+    environment:
+      - VITE_API_URL=http://localhost:4000 # Set API URL for frontend to communicate with backend
+    depends_on:
+      - backend                # Ensure backend starts before frontend
+    command: npm run dev -- --host # Start Vite development server, accessible from host
+    volumes:
+      - ./frontend:/app        # Mount local code for live reload
