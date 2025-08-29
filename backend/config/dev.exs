@@ -4,3 +4,6 @@ import Config
 config :translator,
   http_client: HTTPoison,
   deepl_api_key: System.get_env("DEEPL_API_KEY") || ""
+
+# Enable logging in development
+config :logger, level: :info

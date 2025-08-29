@@ -4,3 +4,6 @@ import Config
 config :translator,
   http_client: Translator.FakeHttpClient,
   deepl_api_key: "test_key"
+
+# Disable logging during tests to keep output clean
+config :logger, level: :warn
