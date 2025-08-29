@@ -8,7 +8,7 @@ import languages from "../assets/languages.json";
 // Allows users to input text, select a target language, and see the translated result.
 // Handles loading state and error messages.
 export default function Translator(){
-  const [input, setInput] = useState('');  // input text from user
+  const [input, setInput] = useState('Hola mundo');  // input text from user
   const [target, setTarget] = useState('EN');       // selected target language
   const [loading, setLoading] = useState(false);   // loading indicator
   const [result, setResult] = useState('');       // translated result
@@ -28,7 +28,7 @@ export default function Translator(){
   }
 
   return (
-    <Container>
+    <Container style={{backgroundColor: "#049f9d"}}>
       <div>
         <label htmlFor="inputText" style={{ display: "block", marginBottom: 6 }}>
           Text to translate
@@ -39,17 +39,18 @@ export default function Translator(){
           id="inoutText"
           value={input} 
           onChange={setInput} 
-          placeholder="Write something..." 
+          placeholder="Write something..."
+          style={{ backgroundColor: '#7dc596ff', color: '#fff' }}
         />
 
         {/* Language selection and translate button */}
         <div style={{marginTop:12, display:'flex', alignItems: "center", gap:8}}>
-          <label htmlFor="targetSelect">Choose a language</label>
+          <label htmlFor="targetSelect">Translate to: </label>
           <select 
             id="targetSelect" 
             value={target} 
             onChange={ (e) => setTarget(e.target.value)}
-            style={{padding: 6, borderRadius: 4}}
+            style={{padding: 6, borderRadius: 4, backgroundColor: "#008d65", borderColor: 'grey', color: 'white'}}
           >
             {languages.map(({ code, label }) => (
             <option key={code} value={code}>
@@ -57,13 +58,13 @@ export default function Translator(){
             </option>
           ))}
           </select>
-          <button onClick={handleTranslate} disabled={loading} style={{marginLeft:8, padding: "6px 12px", borderRadius: 4, cursor: loading ? "not-allowed": "pointer"}}>{loading ? 'Translating...' : 'Translate'}</button>
+          <button onClick={handleTranslate} disabled={loading} style={{marginLeft:8, padding: "6px 12px", borderRadius: 4, backgroundColor: "#008d65", borderColor: 'grey', color: 'white', cursor: loading ? "not-allowed": "pointer"}}>{loading ? 'Translating...' : 'Translate'}</button>
         </div>
 
         {/* Translation result display */}
-        <div style={{marginTop: 16}}>
+        <div class="result-container" style={{marginTop: 16}}>
           <h3>Result</h3>
-          <div style={{whiteSpace:'pre-wrap', background:'#f3f3f4', padding:12, borderRadius:6, minHeight: 80}}>{result}</div>
+          <div style={{whiteSpace:'pre-wrap', background:'#7dc596ff', padding:12, borderRadius:6, minHeight: 120, color: 'white', textShadow:'none', width:'100%'}}>{result}</div>
         </div>
       </div>
     </Container>

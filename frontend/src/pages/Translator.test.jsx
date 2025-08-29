@@ -22,13 +22,13 @@ describe('Translator Component', () => {
     render(<Translator />);
     expect(screen.getByPlaceholderText(/Write something/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Translate/i })).toBeInTheDocument();
-    expect(screen.getByLabelText(/Choose a language/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Translate to:/i)).toBeInTheDocument();
   });
 
   test('translates text when clicking the button', async () => {
     render(<Translator />);
     const input = screen.getByPlaceholderText(/Write something/i);
-    const select = screen.getByLabelText(/Choose a language/i);
+    const select = screen.getByLabelText(/Translate to:/i);
     const button = screen.getByRole('button', { name: /Translate/i });
 
     fireEvent.change(input, { target: { value: 'Hello' } });
@@ -49,7 +49,7 @@ describe('Translator Component', () => {
   test('shows loading state while translating', async () => {
     render(<Translator />);
     const input = screen.getByPlaceholderText(/Write something/i);
-    const select = screen.getByLabelText(/Choose a language/i);
+    const select = screen.getByLabelText(/Translate to:/i);
     const button = screen.getByRole('button', { name: /Translate/i });
 
     fireEvent.change(input, { target: { value: 'Hello' } });
