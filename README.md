@@ -75,6 +75,5 @@ mix run --no-halt
 
 ## Notes
 
-* Minimal code to run the feature (no tests included)
 * Backend integrates with DeepL Free API; ensure `DEEPL_API_KEY` is set
 
